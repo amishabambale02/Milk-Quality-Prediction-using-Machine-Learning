@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+   <head>
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylesheet.css') }}">
+      <!--for bg image in html file-->
+      <!--background-image:url({{ url_for('static', filename='img/img1.jpg') }});-->
+      <title>Milk Quality Prediction Using ML Techniques</title>
+   </head>
+   <body>
+
+         <div class="name">
+           Milk Quality Prediction-ML
+         </div>
+         <div class="context">
+            {% if result %}
+               Given Milk sample is {{ result }}
+            {% else %}
+               "Access to safe drinking-Milk is essential to health, a basic human right and a component of effective policy for health protection. This is important as a health and development issue at a national, regional and local level. In some regions, it has been shown that investments in Milk supply and sanitation can yield a net economic benefit, since the reductions in adverse health effects and health care costs outweigh the costs of undertaking the interventions."
+            {% endif %}
+         </div>
+         <div class="project">
+            <form method="post" action="/" enctype = "multipart/form-data">
+               <h1 > Milk quality Checker</h1>
+               <input type="text" name="Type value" id="Type value" placeholder="Type value(0 to 14)" required>
+               <input type="text" name="pH" id="pH" placeholder="pH(mg/L)" required>
+               <input type="text" name="Temprature" id="Temprature" placeholder="Temprature" required>
+               <input type="text" name="Taste" id="Taste" placeholder="Taste" required>
+               <input type="text" name="Odor" id="Odor" placeholder="Odor" required>
+               <input type="text" name="Fat" id="Fat" placeholder="Fat" required>
+               <input type="text" name="Turbidity" id="Turbidity" placeholder="Turbidity" required>
+               <input type="text" name="Colour" id="Colour" placeholder="Colour" required>
+
+               <center><input class="btn" type=submit name="submit_button" value=PREDICT></center>
+            </form>
+         </div>
+   </body>
+</html>
